@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "node src/index.js"
+    "start": "node src/index.js",
+    "helps": "node src/tools/help.js"
   },
   "repository": "git@github.com:AexLiuMing/sendTx.git",
   "author": "alex ",

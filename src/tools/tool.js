@@ -14,11 +14,11 @@ function OpenJsonFileOut(path) {
         process.exit(1);
     }
 }
-async function GetGasFees(web3) {
+async function GetGasFees(web3,PRIORITY_FEE) {
     try {
         const block = await web3.eth.getBlock('latest');
         const baseFee = BigInt(block.baseFeePerGas);
-        const priorityFeeFromEnv = process.env.priorityFee || 1.5
+        const priorityFeeFromEnv = PRIORITY_FEE || 1.5
         const priorityFee = priorityFeeFromEnv * Math.pow(10, 9);
         const txMaxPriorityFeePerGas = BigInt(priorityFee);
         const txMaxFeePerGas = baseFee + txMaxPriorityFeePerGas;

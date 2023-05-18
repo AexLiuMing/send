@@ -10,16 +10,19 @@
 
 
 ```
-PRIVATE_ KEY=''
+CHAIN_URL=''
 
-CHECK_ TIME=60 Check time="Cycle every time in minutes
+PRIVATE_KEY=''
 
-TxWaitTime=1 The number of minutes to wait for the first transaction failure. After waiting, use this nonce to initiate the transaction again
+CHECK_TIME=60 Check time="Cycle every time in minutes
 
-PriorityFeeFromEnv=2.5 Priority fee defaults to 1.5gwei
+TX_WAIT_TIME=1 The number of minutes to wait for the first transaction failure. After waiting, use this nonce to initiate the transaction again
 
-TxMaxFeePerGasLimit=1000 The default maximum cost is 500gwei. If the altitude exceeds this, the program will exit
+PRIORITY_FEE=2.5 Priority fee defaults to 1.5gwei
 
+TX_MAX_FEE_PRE_GASLIMIT=1000 The default maximum cost is 500gwei. If the altitude exceeds this, the program will exit
+
+EXECUTE=1
 
 [
   {
@@ -86,3 +89,26 @@ docker run -d \
 -v ".env":/app/.env \
 --name sendtx \
 ghcr.io/aexliuming/sendtx:latest
+
+
+yarn helps
+
+
+Usage: yarn help [options]
+
+Options:
+--CHAIN_URL=<chain_url>          The chain URL
+--PRIVATE_KEY=<private_key>      The private key
+--CHECK_TIME=<check_time>        The check time
+--TX_WAIT_TIME=<tx_wait_time>    The transaction wait time
+--PRIORITY_FEE=<priority_fee>    The priority fee
+--TX_MAX_FEE_PRE_GASLIMIT=<tx_max_fee_pre_gaslimit>    The maximum fee per gas limit
+--EXECUTE=<execute>              The execute flag
+
+Examples:
+yarn start                           Display help and usage instructions
+yarn start --CHAIN_URL=example.com   Specify the chain URL
+yarn start --PRIVATE_KEY=abc123      Specify the private key
+yarn start --CHAIN_URL=your_chain_url --PRIVATE_KEY=your_private_key --CHECK_TIME=10 --TX_WAIT_TIME=1 --PRIORITY_FEE=2.0 --TX_MAX_FEE_PRE_GASLIMIT=1000 --EXECUTE=1
+
+Note: You can also pass the options as command-line arguments without the "--" prefix.
