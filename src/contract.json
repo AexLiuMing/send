@@ -1,0 +1,15 @@
+[
+  {
+    "contractName": "MegaPoker",
+    "address": "0xDC6163c353500E38A56edF87a8191B6120B70F57",
+    "abiPath": "./abis/MegaPoker.json",
+    "functions": [
+      {
+        "functionName": "poke",
+        "callTime": 60,
+        "gasLimit": 500000
+      }
+    ]
+  }
+]
+
