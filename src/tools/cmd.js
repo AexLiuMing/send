@@ -8,15 +8,15 @@ function SetENV() {
             options[key.replace('--', '')] = value;
         }
     });
-    const chainUrl = options.CHAIN_URL;
-    const privateKey = options.PRIVATE_KEY;
-    const checkTime = options.CHECK_TIME;
-    const txWaitTime = options.TX_WAIT_TIME;
-    const priorityFee = options.PRIORITY_FEE;
-    const txMaxFeePreGasLimit = options.TX_MAX_FEE_PRE_GASLIMIT;
-    const execute = options.EXECUTE;
+    const CHAIN_URL = options.CHAIN_URL;
+    const PRIVATE_KEY = options.PRIVATE_KEY;
+    const CHECK_TIME = options.CHECK_TIME;
+    const TX_WAIT_TIME = options.TX_WAIT_TIME;
+    const PRIORITY_FEE = options.PRIORITY_FEE;
+    const TX_MAX_FEE_PRE_GASLIMIT = options.TX_MAX_FEE_PRE_GASLIMIT;
+    const EXECUTE = options.EXECUTE;
 
-    return {chainUrl, privateKey, checkTime, txWaitTime, priorityFee, txMaxFeePreGasLimit, execute}
+    return {CHAIN_URL, PRIVATE_KEY, CHECK_TIME, TX_WAIT_TIME, PRIORITY_FEE, TX_MAX_FEE_PRE_GASLIMIT, EXECUTE}
 }
 
 module.exports = {

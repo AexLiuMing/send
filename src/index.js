@@ -5,18 +5,16 @@ require('dotenv').config();
 
 
 function main() {
-    let {CHAIN_URL,PRIVATE_KEY,CHECK_TIME,TX_WAIT_TIME,PRIORITY_FEE,TX_MAX_FEE_PRE_GASLIMIT,EXECUTE} = process.env;
+    let CHAIN_URL,PRIVATE_KEY,CHECK_TIME,TX_WAIT_TIME,PRIORITY_FEE,TX_MAX_FEE_PRE_GASLIMIT,EXECUTE;
+    const config = SetENV();
+    CHAIN_URL = config.CHAIN_URL || process.env.CHAIN_URL;
+    PRIVATE_KEY = config.PRIVATE_KEY || process.env.PRIVATE_KEY;
+    CHECK_TIME = config.CHECK_TIME || process.env.CHECK_TIME;
+    TX_WAIT_TIME = config.TX_WAIT_TIME || process.env.TX_WAIT_TIME;
+    PRIORITY_FEE = config.PRIORITY_FEE || process.env.PRIORITY_FEE;
+    TX_MAX_FEE_PRE_GASLIMIT = config.TX_MAX_FEE_PRE_GASLIMIT || process.env.TX_MAX_FEE_PRE_GASLIMIT;
+    EXECUTE = config.EXECUTE || process.env.EXECUTE;
 
-    if (!CHAIN_URL || !PRIVATE_KEY || !CHECK_TIME || !TX_WAIT_TIME || !PRIORITY_FEE || !TX_MAX_FEE_PRE_GASLIMIT || !EXECUTE) {
-        const setEnvResult = SetENV();
-        CHAIN_URL = setEnvResult.chainUrl;
-        PRIVATE_KEY = setEnvResult.privateKey;
-        CHECK_TIME = setEnvResult.checkTime;
-        TX_WAIT_TIME = setEnvResult.txWaitTime;
-        PRIORITY_FEE = setEnvResult.priorityFee;
-        TX_MAX_FEE_PRE_GASLIMIT = setEnvResult.txMaxFeePreGasLimit;
-        EXECUTE = setEnvResult.execute;
-    }
     console.log(`sendtx start, chainUrl: ${CHAIN_URL}, checkTime: ${CHECK_TIME}, txWaitTime: ${TX_WAIT_TIME}, priorityFee: ${PRIORITY_FEE}, txMaxFeePreGasLimit: ${TX_MAX_FEE_PRE_GASLIMIT}, execute: ${EXECUTE}`)
 
     const {web3, contracts} = NewWeb3AndContract(CHAIN_URL)

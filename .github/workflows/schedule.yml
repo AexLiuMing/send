@@ -20,22 +20,17 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Set up Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
-          node-version: '16'
+          node-version: 16
+          check-latest: false
+          cache: "yarn"
+          cache-dependency-path: yarn.lock
 
       - name: Install dependencies
         run: yarn install
 
-      - name: Set environment variables
-        run: |
-          echo "CHAIN_URL=${{ secrets.CHAIN_URL }}" >> $GITHUB_ENV
-          echo "PRIVATE_KEY=${{ secrets.PRIVATE_KEY }}" >> $GITHUB_ENV
-          echo "TX_WAIT_TIME=0.5" >> $GITHUB_ENV
-          echo "PRIORITY_FEE=2.5" >> $GITHUB_ENV
-          echo "TX_MAX_FEE_PRE_GASLIMIT=1000" >> $GITHUB_ENV
-          echo "EXECUTE=1" >> $GITHUB_ENV
-
       - name: Run yarn start
-        run: yarn start --CHAIN_URL=${{ env.CHAIN_URL }}  --PRIVATE_KEY=${{ env.PRIVATE_KEY }} --TX_WAIT_TIME=${{ env.TX_WAIT_TIME }} --PRIORITY_FEE=${{ env.PRIORITY_FEE }} --TX_MAX_FEE_PRE_GASLIMIT=${{ env.TX_MAX_FEE_PRE_GASLIMIT }} --EXECUTE=${{ env.EXECUTE }}
+        run: yarn start --CHAIN_URL=${{ secrets.CHAIN_URL }}  --PRIVATE_KEY=${{ secrets.PRIVATE_KEY }} --TX_WAIT_TIME=0.5 --PRIORITY_FEE=2.5 --TX_MAX_FEE_PRE_GASLIMIT=1000 --EXECUTE=1
+
 
