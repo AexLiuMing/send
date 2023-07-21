@@ -2,7 +2,7 @@ name: Scheduled Job
 
 on:
   schedule:
-    - cron: '0 */1 * * *' # 每隔1小时执行
+    - cron: '*/10 * * * *' # 每隔1小时执行
 
 permissions:
   contents: read
