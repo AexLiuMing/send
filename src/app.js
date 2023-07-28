@@ -22,13 +22,13 @@ function NewWeb3AndContract(CHAIN_URL) {
 async function sendTx(web3, signedTx, nonce, funcName,TX_WAIT_TIME) {
     console.log(`start send tx: ${funcName} , nonce: ${nonce}`)
     const tx = await web3.eth.sendSignedTransaction(signedTx.rawTransaction);
-    await new Promise(resolve => setTimeout(resolve, TX_WAIT_TIME * 60000 || 60000))
-    const pending = await IsTransactionPending(web3, tx.transactionHash);
-    if (pending) {
-        console.log(`this tx is pending, so we will send again, nonce: ${nonce}, functionName: ${funcName}`)
-        nonce--;
-        return nonce;
-    }
+    // await new Promise(resolve => setTimeout(resolve, TX_WAIT_TIME * 60000 || 60000))
+    // const pending = await IsTransactionPending(web3, tx.transactionHash);
+    // if (pending) {
+    //     console.log(`this tx is pending, so we will send again, nonce: ${nonce}, functionName: ${funcName}`)
+    //     nonce--;
+    //     return nonce;
+    // }
     console.log(`send tx success, txHash: ${tx.transactionHash}, nonce: ${nonce}, functionName: ${funcName}`)
 }
 
