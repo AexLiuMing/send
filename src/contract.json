@@ -1,7 +1,7 @@
 [
   {
     "contractName": "MegaPoker",
-    "address": "0xd423c4229C7fDBBe14503189A7d9C1e6e47B0E42",
+    "address": "0xfEBc8d8e2F6CA89e08f2e10229EcE493475d3733",
     "abiPath": "./abis/MegaPoker.json",
     "functions": [
       {
