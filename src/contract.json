@@ -10,18 +10,6 @@
         "gasLimit": 500000
       }
     ]
-  },
-  {
-    "contractName": "FeedMachine",
-    "address": "0xE3073197a334462c121aD70a94e0B8bD3A64f6F4",
-    "abiPath": "./abis/FeedMachine.json",
-    "functions": [
-      {
-        "functionName": "changeAllNetWorth",
-        "callTime": 60,
-        "gasLimit": 500000
-      }
-    ]
   }
 ]
 

@@ -76,7 +76,7 @@ async function sendTransactionForFunction(web3, contract, func, account, nonce,T
         to: contractAddress,
         maxPriorityFeePerGas: web3.utils.toHex(Number(txMaxPriorityFeePerGas)),
         maxFeePerGas: web3.utils.toHex(maxFee),
-        gasLimit: web3.utils.toHex(Math.round(limit * 2)),
+        gasLimit: web3.utils.toHex(Math.round(limit * 1)),
         data: callData,
         nonce: nonce,
     };
